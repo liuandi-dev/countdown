@@ -1,0 +1,114 @@
+/* ===== 全局重置 + 主题变量（和主页同一套视觉语言） ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --accent: #6366f1;
+  --urgent: #dc2626;   /* ≤30 天：红 */
+  --soon: #ea580c;     /* ≤60 天：橙 */
+  --far: #6366f1;      /* 更远：蓝 */
+  --done: #059669;     /* 已过：绿 */
+  --text: #1f2937;
+  --muted: #6b7280;
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+
+body {
+  font-family: system-ui, "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+header {
+  text-align: center;
+  padding: 48px 20px 8px;
+}
+header h1 { font-size: 30px; }
+.subtitle { color: var(--muted); margin-top: 6px; }
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+/* ===== 主卡片：渐变大卡，页面的视觉中心 ===== */
+.featured-card {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border-radius: 16px;
+  text-align: center;
+  padding: 36px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.3);
+}
+.featured-label {
+  font-size: 13px;
+  letter-spacing: 4px;
+  opacity: 0.85;
+}
+.featured-card h2 { font-size: 24px; margin-top: 4px; }
+.featured-days { font-size: 72px; font-weight: 800; line-height: 1.2; }
+.featured-days small { font-size: 18px; font-weight: 400; margin-left: 6px; }
+.featured-date { opacity: 0.85; font-size: 14px; }
+
+/* ===== 卡片墙：自动换行栅格 ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+.card .name { font-size: 15px; font-weight: 600; min-height: 46px; }
+.card .date { font-size: 13px; color: var(--muted); }
+.card .days {
+  font-size: 40px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+.card .days small { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+
+/* 紧急度配色：类名由 script.js 根据 urgency() 函数自动加上 */
+.days.urgent { color: var(--urgent); }
+.days.soon   { color: var(--soon); }
+.days.far    { color: var(--far); }
+.days.done   { color: var(--done); font-size: 26px; }
+
+/* ===== 挑战进度条 ===== */
+.challenge h2 { font-size: 20px; margin-bottom: 14px; }
+.progress-track {
+  background: #e5e7eb;
+  border-radius: 999px;
+  height: 14px;
+  overflow: hidden;
+}
+.progress-bar {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  transition: width 0.6s;
+}
+.progress-text { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+footer {
+  text-align: center;
+  padding: 24px 20px 40px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; }

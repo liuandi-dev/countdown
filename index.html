@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春招倒计时 · Andy 的 2027 冲刺</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ① 头部：标题 + 今天的日期（日期由 script.js 自动填） -->
+  <header>
+    <h1>⏳ 春招倒计时</h1>
+    <p class="subtitle">软件工程大四 · 100 项目挑战进行中 · 今天是 <span id="today"></span></p>
+  </header>
+
+  <main>
+    <!-- ② 主卡片（春招开始）：由 script.js 填入剩余天数 -->
+    <section id="featured" class="featured-card">
+      <p class="featured-label">最重要的日子</p>
+      <h2 id="featured-name"></h2>
+      <p class="featured-days"><span id="featured-days">--</span><small>天</small></p>
+      <p class="featured-date" id="featured-date"></p>
+    </section>
+
+    <!-- ③ 其余里程碑卡片墙：由 script.js 自动生成 -->
+    <section id="grid" class="grid"></section>
+
+    <!-- ④ 100 项目挑战进度条 -->
+    <section class="challenge">
+      <h2>💪 100 项目挑战</h2>
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <p class="progress-text"><span id="progress-num">0</span> / 100 个项目 · 每天打开这页看一眼，春招就又近了一天</p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://liuandi-dev.github.io/homepage/" target="_blank">← 回我的主页</a>
+    <p>Andy · 2026 年 10 月启程</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
